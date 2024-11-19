@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: challenge-game
+    env: static
+    buildCommand: npm install && npm run build:prod
+    staticPublishPath: ./www
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
