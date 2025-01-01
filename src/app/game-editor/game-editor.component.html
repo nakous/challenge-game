@@ -1,0 +1,20 @@
+<!-- <div class="game-editor">
+    <form [formGroup]="gameForm" (ngSubmit)="generateJson()">
+        <div class="row">
+            <div class="col">
+                <label for="typeGame">Type of Game:</label>
+                <select id="typeGame" formControlName="typeGame">
+                    <option *ngFor="let type of typeGameOptions" [value]="type">{{type}}</option>
+                </select>
+            </div>
+        </div>
+        <app-drag-drop-edit *ngIf="type == 'dragdrop'"></app-drag-drop-edit>
+        <app-quiz-image-edit *ngIf="type == 'mcqimage'"></app-quiz-image-edit>
+
+        <div class="footer">
+            <button type="submit">Generate JSON</button>
+        </div>
+    </form>
+
+    <pre *ngIf="showJsonOutput">{{jsonOutput}}</pre>
+</div> -->

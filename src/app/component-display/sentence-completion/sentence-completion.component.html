@@ -1,0 +1,32 @@
+<!-- sentence-completion.component.html -->
+<div class="sentence-completion">
+    <h2>{{ exerciseData.question }}</h2>
+    <p class="help-text">{{ exerciseData.help }}</p>
+
+    <div *ngFor="let phrase of exerciseData.phrases" class="phrase-container">
+        <img [src]="getImagePath(phrase.images)" [alt]="'Image for phrase ' + phrase.id" class="phrase-image">
+
+        <div class="sentence">
+            <ng-container *ngFor="let word of phrase.phrase; let i = index">
+                <ng-container *ngIf="!isInputField(word)">
+                    <span [ngClass]="{'verb': word.startsWith('(')}">{{ word }}</span>
+                </ng-container>
+                <ng-container *ngIf="isInputField(word)">
+                    <!-- <input type="text"
+                        [(ngModel)]="userAnswers[phrase.id][phrase.phrase.slice(0, i).filter(w => w === '?').length - 1]"
+                        class="answer-input"> -->
+                    <input type="text" [ngModel]="getInputValue(phrase.id, i)"
+                        (ngModelChange)="setInputValue(phrase.id, i, $event)" class="answer-input">
+
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <button (click)="validateAnswers(phrase.id)" class="validate-btn">Vérifier</button>
+        <p *ngIf="validationMessages[phrase.id]"
+            [ngClass]="{'correct': validationMessages[phrase.id] === 'Correct !', 'incorrect': validationMessages[phrase.id] !== 'Correct !'}"
+            class="validation-message">
+            {{ validationMessages[phrase.id] }}
+        </p>
+    </div>
+</div>

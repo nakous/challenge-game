@@ -1,0 +1,20 @@
+<div class="container mt-4">
+ 
+            <h2 class="fs-4 mb-3">{{ exercise.title }}</h2>
+            <h3 class="fs-5 mb-3 text-muted">{{ exercise.question }}</h3>
+
+            <img *ngIf="exercise.image && exercise.image.trim() !== ''" [src]="exercise.image" alt="Question Image"
+                class="img-fluid rounded mb-3">
+
+            <div class="options-container">
+                <div *ngFor="let option of exercise.options" class="form-check mb-2">
+                    <input class="form-check-input" type="radio" [id]="option.id" name="mcqOption" [value]="option.id"
+                        [(ngModel)]="selectedAnswer" (change)="onSelectionChange(option.id)">
+                    <label class="form-check-label" [for]="option.id">
+                        {{ option.text }}
+                    </label>
+                </div>
+            </div>
+ 
+
+</div>

@@ -1,0 +1,57 @@
+.game-editor {
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .col-80 {
+    flex: 80%;
+  }
+  
+  .col-20 {
+    flex: 20%;
+    padding-left: 20px;
+  }
+  
+  .workspace {
+    border: 1px solid #ccc;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .workspace img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: crosshair;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  input, select, textarea {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }

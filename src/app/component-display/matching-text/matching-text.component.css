@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  justify-content: space-between;
+}
+.Col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.Lines {
+  width: 100px;
+  height: 100%;
+}
+.image-choose{
+  width: 50px;
+  height: 50px;
+}

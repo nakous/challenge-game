@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* lecture.component.css */
+.container {
+    max-width: 800px;
+  }
+  
+  h2 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+  }
+  
+  h3 {
+    color: #555;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .btn-group {
+    margin-left: 15px;
+  }
+  
+  .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .text-success {
+    font-weight: bold;
+  }
+  
+  .text-danger {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,15 @@
+<div class="App">
+  <div class="Col">
+    <div *ngFor="let item of leftArr">
+      <img class="image-choose" *ngIf="item.image_left" [src]="item.image_left">
+      <span  *ngIf="!item.image_left"> {{ item.left }}</span>
+    </div>
+  </div>
+  <canvas #canvas class="Lines"></canvas>
+  <div class="Col">
+    <div *ngFor="let item of rightArr">
+      <img class="image-choose" *ngIf="item.image_right" [src]="item.image_right">
+     <span  *ngIf="!item.image_right"> {{ item.right }}</span>
+    </div>
+  </div>
+</div>

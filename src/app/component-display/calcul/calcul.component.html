@@ -1,0 +1,22 @@
+<!-- Component HTML file (e.g., math-exercises.component.html) -->
+<div class="math-exercises">
+    <h2>{{ exercises.question }}</h2>
+    <div *ngFor="let exercise of exercises.math; let exIndex = index" class="exercise">
+      <h3 *ngIf="exercise.question">{{ exercise.question }}</h3>
+      <div class="calculation">
+        <ng-container *ngFor="let value of exercise.values; let i = index">
+          <input *ngIf="value === '?'" type="number" [(ngModel)]="userAnswers[exIndex]" placeholder="?" class="answer-input">
+          <span *ngIf="value !== '?'" class="value">{{ value }}</span>
+          <span *ngIf="i < exercise.values.length - 1" class="operation">{{ exercise.operation }}</span>
+        </ng-container>
+        <span class="equals">=</span>
+        <input *ngIf="isResultInput(exercise)" type="number" [(ngModel)]="userAnswers[exIndex]" placeholder="?" class="answer-input">
+        <span *ngIf="!isResultInput(exercise)" class="result">{{ exercise.result }}</span>
+      </div>
+    </div>
+    <button (click)="validateAnswers()" class="validate-btn">Valider</button>
+    <div *ngIf="validationMessage" [ngClass]="{'success': validationMessage.includes('Bravo'), 'error': !validationMessage.includes('Bravo')}" class="validation-message">
+      {{ validationMessage }}
+    </div>
+  </div>
+  

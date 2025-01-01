@@ -1,0 +1,36 @@
+
+<!-- <div class="row">
+    <div class="col-80">
+        <div class="workspace">
+            <img *ngIf="previewImage" [src]="previewImage"
+                (click)="setOptionPosition($event, options.length - 1)" alt="Game Image">
+        </div>
+    </div>
+    <div class="col-20">
+        <div class="form-fields">
+            <label for="desktopImage">Desktop Image:</label>
+            <input type="file" id="desktopImage" (change)="onImageUpload($event, 'desktop')" accept="image/*">
+
+            <label for="mobileImage">Mobile Image:</label>
+            <input type="file" id="mobileImage" (change)="onImageUpload($event, 'mobile')" accept="image/*">
+
+            <label for="question">Question:</label>
+            <input type="text" id="question" formControlName="question">
+
+            <label for="explain">Explanation:</label>
+            <textarea id="explain" formControlName="explain"></textarea>
+
+            <div formArrayName="options">
+                <div *ngFor="let option of options.controls; let i = index" [formGroupName]="i">
+                    <label>Option {{i + 1}}:</label>
+                    <input type="text" formControlName="text">
+                    <input type="text" formControlName="answer" placeholder="Answer (optional)">
+                    <button type="button" (click)="removeOption(i)">Remove</button>
+                    <span>Position: ({{option.get('position.x')?.value}},
+                        {{option.get('position.y')?.value}})</span>
+                </div>
+            </div>
+            <button type="button" (click)="addOption()">Add Option</button>
+        </div>
+    </div>
+</div> -->

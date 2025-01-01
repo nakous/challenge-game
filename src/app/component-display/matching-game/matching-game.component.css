@@ -1,0 +1,67 @@
+.matching-game {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .column {
+    width: 45%;
+  }
+  
+  .item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .left .item {
+    justify-content: flex-end;
+  }
+  
+  .right .item {
+    justify-content: flex-start;
+  }
+  
+  .matched {
+    border: 2px solid green;
+  }
+  
+  .item:not(.matched) {
+    border: 2px solid red;
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .lines {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

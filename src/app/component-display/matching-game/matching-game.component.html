@@ -1,0 +1,30 @@
+<div class="matching-game">
+    <div class="column left">
+      <div *ngFor="let item of leftItems; let i = index" 
+           class="item"
+           [class.matched]="item.matched"
+           [style.background-color]="item.color"
+           (click)="selectItem(item, true)">
+        {{ item.text }}
+      </div>
+    </div>
+    <div class="column right">
+      <div *ngFor="let item of rightItems; let i = index" 
+           class="item"
+           [class.matched]="item.matched"
+           [style.background-color]="item.color"
+           (click)="selectItem(item, false)">
+        <img [src]="item.imageUrl" [alt]="item.text">
+      </div>
+    </div>
+    <svg class="lines">
+      <line *ngFor="let line of lines"
+            [attr.x1]="0"
+            [attr.y1]="line.start * 60 + 30"
+            [attr.x2]="100"
+            [attr.y2]="line.end * 60 + 30"
+            [attr.stroke]="line.color" />
+    </svg>
+  </div>
+  <button (click)="validate()">Validate</button>
+  

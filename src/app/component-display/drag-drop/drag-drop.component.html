@@ -1,0 +1,52 @@
+<!-- drag-drop.component.html -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 position-relative">
+            <img [src]="jsonData.getImageByDevice()" class="img-fluid w-100" alt="Game Image">
+            <button class="help-icon" (click)="openModal()">
+
+                <fa-icon [icon]="questionIcon"></fa-icon>
+            </button>
+            <!-- <button class="help-icon" (click)="openModal()">
+                <fa-icon [icon]="['fas', 'question-circle']"></fa-icon>  
+              </button> -->
+            <div *ngFor="let option of jsonData.options; let i = index" class="drop-zone"
+                [style.left.px]="option.position.x" [style.top.px]="option.position.y" cdkDropList [id]="'drop-' + i"
+                [cdkDropListConnectedTo]="['availableList']" [cdkDropListData]="[droppedItems[i]]"
+                (cdkDropListDropped)="onDrop($event)">
+                <div *ngIf="droppedItems[i]" class="drop-zone-item" cdkDrag>
+                    {{ droppedItems[i]!.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <h3>Available Options</h3>
+            <div id="availableList" cdkDropList [cdkDropListData]="availableItems"
+                [cdkDropListConnectedTo]="dropZoneIds" (cdkDropListDropped)="onDrop($event)" class="drog-option-list">
+                <div *ngFor="let item of availableItems" cdkDrag class="option-item">
+                    {{ item.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6">
+            <button class="btn btn-primary w-100" (click)="validate()">Valider</button>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-secondary w-100" (click)="reset()">Réinitialiser</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div *ngIf="isModalOpen" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Explanation</h2>
+            <p>{{ jsonData.explain }}</p>
+            <button (click)="closeModal()" class="btn btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
